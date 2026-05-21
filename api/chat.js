@@ -1,15 +1,18 @@
 export default async function handler(req, res) {
   try {
-    const response = await fetch("/api/chat", {
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        
+        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "HTTP-Referer": "https://focus-nest-six.vercel.app",
+        "X-Title": "FocusNest AI",
         "Content-Type": "application/json"
       },
       body: JSON.stringify(req.body)
     });
 
     const data = await response.json();
+
     res.status(200).json(data);
 
   } catch (error) {
