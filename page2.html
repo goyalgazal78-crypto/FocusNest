@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusNest – Task Creator</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="page2.css">
+
+</head>
+<body>
+
+  <!-- Loading Animation -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">🎯</div>
+      <div class="loader-title">FocusNest</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- PW-STYLE NAVBAR -->
+  <nav class="pw-nav">
+    <div class="pw-nav-inner">
+      <a href="index.html" class="pw-logo">
+        <span class="pw-logo-icon">🎯</span>
+        <span class="pw-logo-text">FocusNest</span>
+      </a>
+      <ul class="pw-links">
+        <li><a class="pw-link" href="index.html">Home</a></li>
+        <li><a class="pw-link active" href="page2.html">Task Creator</a></li>
+        <li><a class="pw-link" href="page3.html">Task Dashboard</a></li>
+        <li><a class="pw-link" href="page4.html">Resource Explorer</a></li>
+        <li><a class="pw-link" href="page5.html">Resource Library</a></li>
+      </ul>
+      <div class="pw-actions">
+        <button class="dark-pill" onclick="toggleDark()" id="darkToggleBtn">
+          <i class="ti ti-moon" id="darkIcon"></i>
+          <span id="darkLabel">Dark</span>
+        </button>
+        <a href="#" onclick="logoutUser()" class="pw-btn-logout">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── PLANNER ── -->
+  <div class="planner">
+
+    <!-- LEFT: TASK PANEL -->
+    <div class="task-panel">
+
+      <h4>✏️ Create Task</h4>
+
+      <input id="taskTitle" class="form-control mb-3" placeholder="Task title…">
+
+      <label><b>Category</b></label><br>
+      <div>
+        <span class="category-btn" onclick="selectCategory(this, 'Assignment')">📘 Assignment</span>
+        <span class="category-btn" onclick="selectCategory(this, 'Exam')">📝 Exam</span>
+        <span class="category-btn" onclick="selectCategory(this, 'Project')">💻 Project</span>
+      </div>
+
+      <br>
+
+      <label><b>Priority</b></label><br>
+      <div>
+        <span class="priority-btn high"   onclick="selectPriority(this, 'high')">🔴 High</span>
+        <span class="priority-btn medium" onclick="selectPriority(this, 'medium')">🟡 Medium</span>
+        <span class="priority-btn low"    onclick="selectPriority(this, 'low')">🟢 Low</span>
+      </div>
+
+      <br>
+
+      <label><b>Subtasks</b></label>
+      <div id="subtasks"></div>
+      <button class="btn btn-sm btn-secondary mb-3" onclick="addSubtask()">+ Add Subtask</button>
+
+      <label><b>Due Date</b></label>
+      <input type="date" id="taskDueDate" class="form-control mb-3">
+
+      <button class="btn btn-primary w-100" onclick="addTask()">Add Task</button>
+
+      <hr>
+
+      <!-- PROGRESS -->
+      <div class="progress-wrap" id="progressWrap" style="display: none;">
+        <div class="progress-label">
+          <span>Task Completion</span>
+          <span id="progressLabel">0 / 0</span>
+        </div>
+        <div class="progress" style="height: 10px; border-radius: 8px;">
+          <div id="progressBar" class="progress-bar bg-success"
+            style="width: 0%; border-radius: 8px; transition: 0.4s;"></div>
+        </div>
+      </div>
+
+      <h5>Your Tasks</h5>
+
+      <div id="taskList">
+        <div class="empty-state" id="emptyState">🗒️ No tasks yet. Add one above!</div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: CALENDAR SIDE -->
+    <div class="calendar-side">
+
+      <!-- STATS -->
+      <div class="stats-bar" id="statsBar">
+        <div class="stat-card total">
+          <span class="stat-num" id="statTotal">0</span>
+          <span>Total Tasks</span>
+        </div>
+        <div class="stat-card pending">
+          <span class="stat-num" id="statPending">0</span>
+          <span>Pending</span>
+        </div>
+        <div class="stat-card done">
+          <span class="stat-num" id="statDone">0</span>
+          <span>Completed</span>
+        </div>
+      </div>
+
+      <!-- CALENDAR -->
+      <div class="calendar-box">
+        <h3 class="text-center mb-1">📆 Focus Calendar</h3>
+        <p class="calendar-hint">Drag a task from the left panel onto any date to schedule it.</p>
+        <div id="calendar"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast">✅ Task added!</div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>© 2026 FocusNest | Student Productivity Platform</p>
+  </footer>
+
+  <!-- FullCalendar JS -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom Script -->
+  <script src="page2.js"></script>
+
+  <!-- ===== CHATBOT FAB ===== -->
+  <button id="fn-fab" aria-label="Open AI Study Assistant">
+    <span id="fn-badge">1</span>
+    <span class="ic-chat">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+           stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    </span>
+    <span class="ic-close">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+           stroke="#fff" stroke-width="2.6" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </span>
+  </button>
+
+  <!-- ===== CHATBOT WINDOW ===== -->
+  <div id="fn-chat" role="dialog" aria-label="FocusNest AI Assistant">
+    <div class="fn-header">
+      <div class="fn-avatar">🦉</div>
+      <div class="fn-header-text">
+        <strong>FocusNest AI</strong>
+        <small><span class="fn-dot"></span>Your study assistant · always here</small>
+      </div>
+      <button class="fn-clear" onclick="fnClearChat()">Clear</button>
+    </div>
+
+    <div class="fn-messages" id="fn-messages"></div>
+
+    <div class="fn-chips">
+      <button class="fn-chip" onclick="fnChip('How does the Pomodoro technique work?')">⏳ Pomodoro</button>
+      <button class="fn-chip" onclick="fnChip('Give me a quick study motivation quote')">💪 Motivate me</button>
+      <button class="fn-chip" onclick="fnChip('How can FocusNest help me study better?')">📚 FocusNest help</button>
+      <button class="fn-chip" onclick="fnChip('How do I manage my tasks effectively?')">📋 Task tips</button>
+    </div>
+
+    <div class="fn-input-bar">
+      <input id="fn-input" type="text" placeholder="Ask anything about studying…" autocomplete="off"
+             onkeydown="if(event.key==='Enter') fnSend()">
+      <button id="fn-send" onclick="fnSend()" aria-label="Send">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="fn-note">Powered by AI · FocusNest 2026</div>
+  </div>
+
+  <!-- ===== CHATBOT SCRIPT ===== -->
+  <script src="chatbot.js"></script>
+
+</body>
+</html>
