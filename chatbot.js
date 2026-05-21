@@ -3,7 +3,7 @@
    Shared chatbot script — include on any page
    ===================================================== */
 
-const OPENROUTER_API_KEY = 'your key';
+const OPENROUTER_API_KEY = 'import.meta.env.VITE_API_KEY';
 
 const fnHistory = [];
 let fnBusy = false;
