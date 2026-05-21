@@ -60,7 +60,8 @@ let upvoted         = JSON.parse(localStorage.getItem("fn_upvoted")  || "[]");
 let recentlyViewed  = JSON.parse(localStorage.getItem("fn_recently") || "[]");
 let userUploads     = JSON.parse(localStorage.getItem("fn_uploads")  || "[]");
 let selectedSubjectId = null;
-let ytApiKey        = localStorage.getItem("fn_yt_api_key") || "";
+const apiKey = null;
+let ytApiKey = true;
 
 /* ── INIT ── */
 document.addEventListener("DOMContentLoaded", () => {
@@ -275,14 +276,7 @@ function deleteUpload(id) {
 }
 
 /* ── YOUTUBE ── */
-function saveYTKey() {
-  const k = document.getElementById("ytKeyInput").value.trim();
-  if (!k) { showToast("⚠️ Paste your API key!", "#ffa500"); return; }
-  ytApiKey = k;
-  localStorage.setItem("fn_yt_api_key", k);
-  document.getElementById("ytApiBox").style.display = "none";
-  showToast("✅ YouTube API key saved!");
-}
+
 
 async function searchYT() {
   const q = document.getElementById("ytQ").value.trim();
@@ -294,15 +288,11 @@ async function searchYT() {
   wrap.style.display = "block";
   title.textContent  = `🎥 YouTube Results for "${q}"`;
 
-  if (!ytApiKey) {
-    document.getElementById("ytApiBox").style.display = "block";
-    grid.innerHTML = `<div class="yt-error">🔑 Save your YouTube API key above to enable live search.</div>`;
-    return;
-  }
+ 
 
   grid.innerHTML = `<div class="yt-msg">⏳ Fetching videos from YouTube…</div>`;
   try {
-    const res  = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(q + " lecture tutorial")}&type=video&maxResults=6&relevanceLanguage=en&key=${ytApiKey}`);
+    const res  = await fetch(`/api/youtube?query=${q}`);
     const data = await res.json();
     if (data.error) {
       grid.innerHTML = `<div class="yt-error">❌ ${data.error.message}<br><small>Check your API key or quota.</small></div>`;
