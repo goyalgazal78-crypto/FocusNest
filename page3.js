@@ -34,9 +34,7 @@ function logoutUser() {
   window.location.href = "login.html";
 }
 
-/* ══════════════════════════════════════
-   STATS
-══════════════════════════════════════ */
+
 
 function loadStats() {
   const tasks = getTasks();
@@ -72,9 +70,6 @@ function loadStats() {
   document.getElementById("statStreak").textContent = streak;
 }
 
-/* ══════════════════════════════════════
-   MOTIVATIONAL QUOTES
-══════════════════════════════════════ */
 
 const QUOTES = [
   { text: "The secret of getting ahead is getting started.",                             author: "Mark Twain" },
@@ -100,9 +95,7 @@ function refreshQuote() {
   document.getElementById("quoteAuthor").textContent = `— ${q.author}`;
 }
 
-/* ══════════════════════════════════════
-   PRODUCTIVITY SCORE
-══════════════════════════════════════ */
+
 
 function updateProductivityScore() {
   const tasks    = getTasks();
@@ -130,9 +123,7 @@ function updateProductivityScore() {
   document.getElementById("scoreDesc").textContent = desc;
 }
 
-/* ══════════════════════════════════════
-   TODAY'S FOCUS PLAN
-══════════════════════════════════════ */
+
 
 function buildTodayPlan() {
   const tasks = getTasks();
@@ -164,9 +155,6 @@ function buildTodayPlan() {
   }).join("");
 }
 
-/* ══════════════════════════════════════
-   POMODORO TIMER
-══════════════════════════════════════ */
 
 const MODES = {
   focus: { label: "FOCUS TIME",  minutes: 25, tip: "Stay focused for 25 minutes, then take a short break 🚀", grad: ["#6a11cb","#2575fc"] },
@@ -345,9 +333,7 @@ function playBeep() {
   } catch (e) {}
 }
 
-/* ══════════════════════════════════════
-   ACHIEVEMENTS
-══════════════════════════════════════ */
+
 
 const BADGE_DEFS = [
   { id:"first_task",    icon:"🥇", name:"First Step",    desc:"Complete your first task",          check:(t,f,s) => t >= 1   },
@@ -381,9 +367,6 @@ function buildAchievements() {
   }).join("");
 }
 
-/* ══════════════════════════════════════
-   SESSION HISTORY LOG
-══════════════════════════════════════ */
 
 function addSessionLog(mode, minutes) {
   const log  = getSessionLog();
@@ -422,9 +405,7 @@ function buildSessionLog() {
     </div>`).join("");
 }
 
-/* ══════════════════════════════════════
-   CHARTS
-══════════════════════════════════════ */
+
 
 function buildCharts() {
   const tasks = getTasks();
@@ -470,7 +451,7 @@ function buildCharts() {
     }
   });
 
-  // Donut chart: tasks by category
+
   const catCounts = { Assignment: 0, Exam: 0, Project: 0, Other: 0 };
   tasks.forEach(t => {
     if (catCounts[t.category] !== undefined) catCounts[t.category]++;
@@ -502,9 +483,6 @@ function buildCharts() {
   });
 }
 
-/* ══════════════════════════════════════
-   TASK TABLE
-══════════════════════════════════════ */
 
 function buildTable() {
   const tasks = getTasks();
@@ -544,9 +522,7 @@ function buildTable() {
   }).join("");
 }
 
-/* ══════════════════════════════════════
-   UTILS
-══════════════════════════════════════ */
+
 
 function escapeHtml(str) {
   return String(str)
@@ -554,13 +530,10 @@ function escapeHtml(str) {
     .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-/* ══════════════════════════════════════
-   INIT
-══════════════════════════════════════ */
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Hide loader
   setTimeout(() => {
     const loader = document.getElementById("loader");
     if (loader) loader.classList.add("hidden");
@@ -569,7 +542,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Dark mode
   initDarkMode();
 
-  // Random quote on load
+  
   currentQuoteIdx = Math.floor(Math.random() * QUOTES.length);
   const q = QUOTES[currentQuoteIdx];
   document.getElementById("quoteText").textContent   = `"${q.text}"`;
@@ -586,7 +559,7 @@ document.addEventListener("DOMContentLoaded", () => {
   buildTable();
 });
 
-/* ── DARK MODE ── */
+
 function initDarkMode() {
   if (localStorage.getItem("fn_dark") === "true") {
     document.body.classList.add("dark-mode");

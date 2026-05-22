@@ -1,12 +1,8 @@
-/* ===========================
-   FocusNest — login.js
-   =========================== */
 
 function loginUser() {
   const email    = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  /* Project credentials */
   const correctEmail    = "gazalnoor20072007@gmail.com";
   const correctPassword = "project";
 
@@ -18,7 +14,7 @@ function loginUser() {
     document.getElementById("message").innerText = "Invalid Email or Password";
   }
 }
-/* ---------- DARK MODE ---------- */
+
 
 (function initDarkMode() {
   if (localStorage.getItem("fn_dark") === "true") {

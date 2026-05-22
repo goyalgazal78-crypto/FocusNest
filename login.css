@@ -1,7 +1,7 @@
-/* ===== GOOGLE FONTS ===== */
+
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap');
 
-/* ===== BASE ===== */
+
 * {
   margin: 0;
   padding: 0;
@@ -16,8 +16,6 @@ body {
   background: linear-gradient(135deg, #5f2c82, #49a09d);
   font-family: 'DM Sans', Arial, sans-serif;
 }
-
-/* ===== LOGIN CARD ===== */
 .login-card {
   width: 400px;
   background: white;
@@ -27,7 +25,7 @@ body {
   text-align: center;
 }
 
-/* ===== TITLE ===== */
+
 .login-title {
   font-family: 'Syne', sans-serif;
   font-size: 40px;
@@ -39,12 +37,12 @@ body {
   margin-bottom: 20px;
 }
 
-/* ===== INPUTS ===== */
+
 .form-control {
   margin-bottom: 15px;
 }
 
-/* ===== LOGIN BUTTON ===== */
+
 .login-btn {
   background: linear-gradient(120deg, #ff7a18, #ffb347);
   border: none;
@@ -63,7 +61,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* ===== BACK LINK ===== */
+
 .back-link {
   margin-top: 15px;
   display: block;
@@ -83,9 +81,6 @@ body {
   font-size: 14px;
 }
 
-/* =====================================================
-   CHATBOT STYLES
-   ===================================================== */
 
 #fn-fab {
   position: fixed;
@@ -283,9 +278,6 @@ body {
   padding: 3px 13px 9px; background: #fff;
   font-family: 'DM Sans', sans-serif;
 }
-/* =============================================
-   PW-STYLE TOP NAVBAR — login page
-   ============================================= */
 
 .pw-nav {
   position: fixed; top: 0; left: 0; right: 0;

@@ -1,18 +1,9 @@
-/* ===========================
-   FocusNest — page2.js
-   (Task Creator Page)
-   =========================== */
 
-/* ──────────────────────────────────────────
-   AUTH GUARD
-────────────────────────────────────────── */
 if (localStorage.getItem("loggedIn") !== "true") {
   window.location.href = "login.html";
 }
 
-/* ──────────────────────────────────────────
-   STATE
-────────────────────────────────────────── */
+
 let selectedCategory = "";
 let selectedPriority  = "";
 let tasks = [];
@@ -22,9 +13,7 @@ let calendar;
 const STORAGE_KEY_TASKS  = "focusnest_tasks";
 const STORAGE_KEY_EVENTS = "focusnest_events";
 
-/* ──────────────────────────────────────────
-   PERSIST HELPERS
-────────────────────────────────────────── */
+
 function saveTasks() {
   localStorage.setItem(STORAGE_KEY_TASKS, JSON.stringify(tasks));
 }
@@ -40,9 +29,7 @@ function loadFromStorage() {
   if (e) calendarEvents = JSON.parse(e);
 }
 
-/* ──────────────────────────────────────────
-   SELECTION HELPERS
-────────────────────────────────────────── */
+
 function selectCategory(el, val) {
   document.querySelectorAll(".category-btn").forEach(b => b.classList.remove("active"));
   el.classList.add("active");
@@ -55,9 +42,7 @@ function selectPriority(el, val) {
   selectedPriority = val;
 }
 
-/* ──────────────────────────────────────────
-   SUBTASK ROW
-────────────────────────────────────────── */
+
 function addSubtask() {
   const div = document.createElement("div");
   div.className = "input-group mb-1";
@@ -69,9 +54,7 @@ function addSubtask() {
   document.getElementById("subtasks").appendChild(div);
 }
 
-/* ──────────────────────────────────────────
-   ADD TASK
-────────────────────────────────────────── */
+
 function addTask() {
   const title = document.getElementById("taskTitle").value.trim();
   if (!title) { showToast("⚠️ Please enter a task title!", "#ffa500"); return; }
@@ -106,7 +89,7 @@ function addTask() {
   renderTaskList();
   updateStats();
 
-  // Reset form
+ 
   document.getElementById("taskTitle").value = "";
   document.getElementById("taskDueDate").value = "";
   document.getElementById("subtasks").innerHTML = "";
@@ -118,9 +101,6 @@ function addTask() {
   showToast("✅ Task added successfully!");
 }
 
-/* ──────────────────────────────────────────
-   DELETE TASK  (also removes from calendar)
-────────────────────────────────────────── */
 function deleteTask(id) {
   // Remove from calendar if it exists there
   const calEv = calendar && calendar.getEventById(String(id));
@@ -134,9 +114,7 @@ function deleteTask(id) {
   updateStats();
 }
 
-/* ──────────────────────────────────────────
-   TOGGLE TASK DONE  (checkbox on task card)
-────────────────────────────────────────── */
+
 function toggleTaskDone(id) {
   const task = tasks.find(t => t.id === id);
   if (!task) return;
@@ -147,11 +125,7 @@ function toggleTaskDone(id) {
   showToast(task.done ? "✅ Task marked complete!" : "↩️ Task marked incomplete");
 }
 
-/* ──────────────────────────────────────────
-   MARK TASK COMPLETE from calendar popup
-   • marks done, removes from calendar,
-     updates stats (page3 reads same storage)
-────────────────────────────────────────── */
+
 function markTaskDoneFromCalendar(taskId, calEventId, fcEventObj) {
   const task = tasks.find(t => String(t.id) === String(taskId));
   if (task) {
@@ -169,9 +143,7 @@ function markTaskDoneFromCalendar(taskId, calEventId, fcEventObj) {
   showToast("🎉 Task completed!");
 }
 
-/* ──────────────────────────────────────────
-   TOGGLE SUBTASK DONE
-────────────────────────────────────────── */
+
 function toggleSubtask(taskId, subIdx) {
   const task = tasks.find(t => t.id === taskId);
   if (!task) return;
@@ -180,9 +152,7 @@ function toggleSubtask(taskId, subIdx) {
   renderTaskList();
 }
 
-/* ──────────────────────────────────────────
-   RENDER TASK LIST
-────────────────────────────────────────── */
+
 function renderTaskList() {
   const list  = document.getElementById("taskList");
   const empty = document.getElementById("emptyState");
@@ -227,8 +197,7 @@ function renderTaskList() {
     const priBadge = task.priority
       ? `<span class="badge" style="background:${dotColor}">${task.priority}</span>` : "";
 
-    // ── Due date display ──
-    // Shows either the manually set dueDate OR the calendar-scheduled date
+    
     const displayDate = task.dueDate || task.scheduledDate || null;
     let dueDateHtml = "";
     if (displayDate) {
@@ -274,9 +243,7 @@ function renderTaskList() {
   updateProgress();
 }
 
-/* ──────────────────────────────────────────
-   STATS + PROGRESS
-────────────────────────────────────────── */
+
 function updateStats() {
   const total   = tasks.length;
   const done    = tasks.filter(t => t.done).length;
@@ -299,10 +266,7 @@ function updateProgress() {
   document.getElementById("progressLabel").textContent = `${doneCount} / ${total}`;
 }
 
-/* ──────────────────────────────────────────
-   CALENDAR EVENT ACTION MODAL
-   Called when user clicks an event on calendar
-────────────────────────────────────────── */
+
 function showCalendarEventModal(fcEvent) {
   // Remove any existing modal first
   const existing = document.getElementById("cal-modal");
@@ -427,9 +391,7 @@ function showCalendarEventModal(fcEvent) {
   document.body.appendChild(modal);
 }
 
-/* ──────────────────────────────────────────
-   TOAST
-────────────────────────────────────────── */
+
 function showToast(msg, bg) {
   const toast = document.getElementById("toast");
   toast.textContent = msg;
@@ -438,9 +400,7 @@ function showToast(msg, bg) {
   setTimeout(() => toast.classList.remove("show"), 2800);
 }
 
-/* ──────────────────────────────────────────
-   CALENDAR + DRAGGABLE
-────────────────────────────────────────── */
+
 function initDraggable() {
   const container = document.getElementById("taskList");
   if (container._draggable) {
@@ -459,18 +419,14 @@ function initDraggable() {
   container._draggable = draggable;
 }
 
-/* ──────────────────────────────────────────
-   LOGOUT
-────────────────────────────────────────── */
+
 function logoutUser() {
   localStorage.removeItem("loggedIn");
   alert("Logged out successfully!");
   window.location.href = "login.html";
 }
 
-/* ──────────────────────────────────────────
-   DOM READY
-────────────────────────────────────────── */
+
 document.addEventListener("DOMContentLoaded", function () {
 
   setTimeout(() => {
@@ -489,38 +445,37 @@ document.addEventListener("DOMContentLoaded", function () {
     events:      calendarEvents,
 
     drop: function () {
-      // handled in eventReceive
+      
     },
 
     eventReceive: function (info) {
       const taskId = info.event.id || info.event.extendedProps.id || Date.now().toString();
       const dateDropped = info.event.startStr;
 
-      // ── 1. Save to calendarEvents ──
+   
       const ev = {
         id:    taskId,
         title: info.event.title,
         date:  dateDropped,
         color: info.event.backgroundColor
       };
-      // Avoid duplicates (re-drag)
+     
       calendarEvents = calendarEvents.filter(e => String(e.id) !== String(taskId));
       calendarEvents.push(ev);
       saveEvents();
 
-      // ── 2. Write scheduledDate back to the task object ──
+    
       const task = tasks.find(t => String(t.id) === String(taskId));
       if (task) {
         task.scheduledDate = dateDropped;
-        // If user hadn't set a dueDate already, use scheduled date as due too
         if (!task.dueDate) task.dueDate = dateDropped;
         saveTasks();
-        renderTaskList();    // ← re-render so date label appears immediately
+        renderTaskList();    
         updateStats();
       }
     },
 
-    // ── Clicking a calendar event opens the action modal ──
+  
     eventClick: function (info) {
       info.jsEvent.preventDefault();
       showCalendarEventModal(info.event);
@@ -529,7 +484,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   calendar.render();
 
-  // Restore saved calendar events
+  
   calendarEvents.forEach(ev => {
     calendar.addEvent({
       id:    ev.id,
@@ -543,9 +498,7 @@ document.addEventListener("DOMContentLoaded", function () {
   updateStats();
 });
 
-/* ──────────────────────────────────────────
-   UTILS
-────────────────────────────────────────── */
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, "&amp;")
@@ -554,7 +507,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
-/* ── DARK MODE ── */
+
 function initDarkMode() {
   if (localStorage.getItem("fn_dark") === "true") {
     document.body.classList.add("dark-mode");

@@ -1,7 +1,7 @@
-/* ===== GOOGLE FONTS ===== */
+
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap');
 
-/* ===== BASE ===== */
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -13,7 +13,7 @@ body {
   position: relative;
 }
 
-/* ── CAMPUS BACKGROUND IMAGE ── */
+
 body::before {
   content: "";
   position: fixed;
@@ -27,7 +27,7 @@ body::before {
   pointer-events: none;
 }
 
-/* ── FROSTED TINT OVERLAY ── */
+
 body > .bg-overlay,
 body::after {
   content: "";
@@ -47,7 +47,7 @@ body::after {
   pointer-events: none;
 }
 
-/* ── DARK MODE: swap tint to dark ── */
+
 body.dark-mode::after {
   background:
     linear-gradient(
@@ -60,7 +60,7 @@ body.dark-mode::after {
     radial-gradient(ellipse 500px 400px at 85% 10%, rgba(167,139,250,0.08) 0%, transparent 70%);
 }
 
-/* ── HEADER ── */
+
 .focus-header {
   text-align: center;
   padding: 50px 0 25px 0;
@@ -91,7 +91,7 @@ body.dark-mode::after {
   font-size: 20px;
 }
 
-/* ── NAVBAR ── */
+
 .custom-nav {
   background: white;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -111,14 +111,14 @@ body.dark-mode::after {
   color: #6a11cb;
 }
 
-/* ── PAGE WRAPPER ── */
+
 .page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 30px;
 }
 
-/* ── SECTION TITLE ── */
+
 .section-title {
   font-family: 'Syne', sans-serif;
   font-size: 26px;
@@ -131,7 +131,7 @@ body.dark-mode::after {
   margin-right: 8px;
 }
 
-/* ── STAT CARDS ── */
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -182,7 +182,7 @@ body.dark-mode::after {
 .stat-card.c3 { background: linear-gradient(135deg, #28c76f, #00d2ff); }
 .stat-card.c4 { background: linear-gradient(135deg, #f7971e, #ffd200); }
 
-/* ── QUOTE BANNER ── */
+
 .quote-banner {
   background: linear-gradient(120deg, #6a11cb, #2575fc, #4ecdc4);
   background-size: 200%;
@@ -236,7 +236,7 @@ body.dark-mode::after {
   transform: rotate(180deg);
 }
 
-/* ── PRODUCTIVITY SCORE ── */
+
 .productivity-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -302,7 +302,7 @@ body.dark-mode::after {
   line-height: 1.6;
 }
 
-/* ── TODAY'S FOCUS PLAN ── */
+
 .today-card {
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(16px);
@@ -347,7 +347,7 @@ body.dark-mode::after {
   padding: 16px 0;
 }
 
-/* ── ACHIEVEMENTS ── */
+
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -421,7 +421,6 @@ body.dark-mode::after {
   letter-spacing: 0.5px;
 }
 
-/* ── SESSION LOG ── */
 .session-log-card {
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(16px);
@@ -477,7 +476,7 @@ body.dark-mode::after {
   padding: 16px 0;
 }
 
-/* ── POMODORO SECTION ── */
+
 .pomodoro-section {
   background: rgba(255, 255, 255, 0.52);
   backdrop-filter: blur(20px);
@@ -505,7 +504,7 @@ body.dark-mode::after {
   pointer-events: none;
 }
 
-/* ── CUSTOM TIMING INPUTS ── */
+
 .timing-config {
   display: flex;
   justify-content: center;
@@ -568,7 +567,6 @@ body.dark-mode::after {
   box-shadow: 0 6px 18px rgba(106, 17, 203, 0.4);
 }
 
-/* ── MODE TABS ── */
 .mode-tabs {
   display: inline-flex;
   background: #f0f0f0;
@@ -596,7 +594,7 @@ body.dark-mode::after {
   box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
 }
 
-/* ── TIMER RING ── */
+
 .timer-wrap {
   position: relative;
   display: inline-block;
@@ -653,7 +651,6 @@ body.dark-mode::after {
   background: #6a11cb;
 }
 
-/* ── TIMER BUTTONS ── */
 .timer-controls {
   display: flex;
   gap: 14px;
@@ -696,7 +693,7 @@ body.dark-mode::after {
   margin-top: 6px;
 }
 
-/* ── CHARTS ── */
+
 .charts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -721,7 +718,7 @@ body.dark-mode::after {
   margin-bottom: 20px;
 }
 
-/* ── TASK TABLE ── */
+
 .table-card {
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(16px);
@@ -788,7 +785,7 @@ body.dark-mode::after {
 .status-done    { color: #28c76f; font-weight: 700; }
 .status-pending { color: #ffa500; font-weight: 700; }
 
-/* ── EMPTY STATE ── */
+
 .empty-table {
   text-align: center;
   color: #bbb;
@@ -796,7 +793,6 @@ body.dark-mode::after {
   font-size: 15px;
 }
 
-/* ── FOOTER ── */
 footer {
   background: #1a1a2e;
   color: white;
@@ -804,7 +800,7 @@ footer {
   text-align: center;
 }
 
-/* ── RESPONSIVE ── */
+
 @media (max-width: 900px) {
   .stats-grid        { grid-template-columns: repeat(2, 1fr); }
   .charts-grid       { grid-template-columns: 1fr; }
@@ -818,9 +814,7 @@ footer {
   .mode-tabs  { flex-wrap: wrap; justify-content: center; }
 }
 
-/* =====================================================
-   CHATBOT STYLES
-   ===================================================== */
+
 
 #fn-fab {
   position: fixed;
@@ -1018,9 +1012,7 @@ footer {
   padding: 3px 13px 9px; background: #fff;
   font-family: 'DM Sans', sans-serif;
 }
-/* =============================================
-   PW-STYLE NAVBAR
-   ============================================= */
+
 .pw-nav {
   position: sticky; top: 0; z-index: 1000;
   background: white; border-bottom: 1px solid #eee;
@@ -1063,9 +1055,7 @@ footer {
 .dark-pill:hover { background: #6a11cb; color: white; }
 .dark-pill i { font-size: 15px; }
 
-/* =============================================
-   LOADING ANIMATION
-   ============================================= */
+
 #loader {
   position: fixed; inset: 0; z-index: 99999;
   background: white;
@@ -1093,9 +1083,7 @@ footer {
 }
 @keyframes loaderProgress { to { width: 100%; } }
 
-/* =============================================
-   DARK MODE
-   ============================================= */
+
 body.dark-mode { background: transparent; color: #ede8f8; }
 body.dark-mode .pw-nav { background: #2d2b36; border-color: #3a3550; box-shadow: 0 2px 12px rgba(0,0,0,.4); }
 body.dark-mode .pw-logo-text { background: linear-gradient(45deg,#a78bfa,#4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }

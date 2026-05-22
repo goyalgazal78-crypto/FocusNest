@@ -1,7 +1,4 @@
-/* =====================================================
-   FocusNest — chatbot.js
-   Shared chatbot script — include on any page
-   ===================================================== */
+
 
 const OPENROUTER_API_KEY = 'import.meta.env.VITE_API_KEY';
 
@@ -26,7 +23,6 @@ Your behaviour:
 - Use an occasional relevant emoji (don't overdo it)
 - Never go off-topic or give harmful content`;
 
-/* ── Toggle chat open/close ── */
 const fab   = document.getElementById('fn-fab');
 const chat  = document.getElementById('fn-chat');
 const badge = document.getElementById('fn-badge');
@@ -45,7 +41,7 @@ fab.addEventListener('click', () => {
   }
 });
 
-/* ── Send message ── */
+
 async function fnSend() {
   const input = document.getElementById('fn-input');
   const text  = input.value.trim();
@@ -56,14 +52,14 @@ async function fnSend() {
   await fnCallAPI();
 }
 
-/* ── Quick chip shortcut ── */
+
 function fnChip(text) {
   if (fnBusy) return;
   document.getElementById('fn-input').value = text;
   fnSend();
 }
 
-/* ── Render a message bubble ── */
+
 function fnAddMsg(role, text) {
   const wrap   = document.getElementById('fn-messages');
   const row    = document.createElement('div');
@@ -83,7 +79,6 @@ function fnAddMsg(role, text) {
   wrap.scrollTop = wrap.scrollHeight;
 }
 
-/* ── Typing indicator ── */
 function fnShowTyping() {
   const wrap = document.getElementById('fn-messages');
   const row  = document.createElement('div');
@@ -109,7 +104,7 @@ function fnHideTyping() {
   if (el) el.remove();
 }
 
-/* ── Call OpenRouter API ── */
+
 async function fnCallAPI() {
   fnBusy = true;
   document.getElementById('fn-send').disabled = true;
@@ -166,7 +161,7 @@ async function fnCallAPI() {
   document.getElementById('fn-input').focus();
 }
 
-/* ── Clear conversation ── */
+
 function fnClearChat() {
   fnHistory.length = 0;
   document.getElementById('fn-messages').innerHTML = '';

@@ -1,7 +1,7 @@
-/* ===== GOOGLE FONTS ===== */
+
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap');
 
-/* ===== BASE ===== */
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -13,7 +13,7 @@ body {
   position: relative;
 }
 
-/* ── CAMPUS BACKGROUND IMAGE ── */
+
 body::before {
   content: "";
   position: fixed;
@@ -27,7 +27,7 @@ body::before {
   pointer-events: none;
 }
 
-/* ── FROSTED TINT OVERLAY ── */
+
 body::after {
   content: "";
   position: fixed;
@@ -46,7 +46,6 @@ body::after {
   pointer-events: none;
 }
 
-/* ── HEADER ── */
 .focus-header {
   text-align: center;
   padding: 50px 0 25px 0;
@@ -96,7 +95,7 @@ body::after {
   color: #6a11cb;
 }
 
-/* ── MAIN LAYOUT ── */
+
 .planner {
   display: flex;
   gap: 30px;
@@ -104,7 +103,6 @@ body::after {
   align-items: flex-start;
 }
 
-/* ── TASK PANEL ── */
 .task-panel {
   width: 370px;
   min-width: 340px;
@@ -114,7 +112,7 @@ body::after {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ── CATEGORY / PRIORITY BUTTONS ── */
+
 .category-btn {
   padding: 8px 12px;
   border-radius: 8px;
@@ -146,7 +144,6 @@ body::after {
 .priority-btn.medium.active { background: #ffa500; color: white; border-color: #ffa500; }
 .priority-btn.low.active    { background: #28c76f; color: white; border-color: #28c76f; }
 
-/* ── TASK CARD ── */
 .task {
   padding: 14px;
   border-radius: 12px;
@@ -185,7 +182,7 @@ body::after {
   color: #ff4d4d;
 }
 
-/* ── SUBTASKS ── */
+
 .subtask-list {
   margin-top: 8px;
   padding-left: 4px;
@@ -209,7 +206,7 @@ body::after {
   color: #aaa;
 }
 
-/* ── EMPTY STATE ── */
+
 .empty-state {
   text-align: center;
   color: #bbb;
@@ -217,7 +214,7 @@ body::after {
   font-size: 14px;
 }
 
-/* ── TOAST NOTIFICATION ── */
+
 #toast {
   position: fixed;
   bottom: 30px;
@@ -241,7 +238,7 @@ body::after {
   transform: translateY(0);
 }
 
-/* ── CALENDAR SIDE ── */
+
 .calendar-side {
   flex: 1;
   display: flex;
@@ -256,7 +253,7 @@ body::after {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ── STATS BAR ── */
+
 .stats-bar {
   display: flex;
   gap: 16px;
@@ -285,7 +282,7 @@ body::after {
 .stat-card.pending { background: linear-gradient(135deg, #ff6b6b, #f7b733); }
 .stat-card.done    { background: linear-gradient(135deg, #28c76f, #00d2ff); }
 
-/* ── CALENDAR HINT ── */
+
 .calendar-hint {
   text-align: center;
   font-size: 13px;
@@ -293,7 +290,7 @@ body::after {
   margin-bottom: 10px;
 }
 
-/* ── PROGRESS BAR ── */
+
 .progress-wrap {
   margin-bottom: 12px;
 }
@@ -306,7 +303,7 @@ body::after {
   justify-content: space-between;
 }
 
-/* ── FOOTER ── */
+
 footer {
   background: #1a1a2e;
   color: white;
@@ -315,7 +312,7 @@ footer {
   margin-top: 40px;
 }
 
-/* ── RESPONSIVE ── */
+
 @media (max-width: 900px) {
   .planner {
     flex-direction: column;
@@ -336,9 +333,7 @@ footer {
   }
 }
 
-/* =====================================================
-   CHATBOT STYLES
-   ===================================================== */
+
 
 #fn-fab {
   position: fixed;
@@ -536,9 +531,7 @@ footer {
   padding: 3px 13px 9px; background: #fff;
   font-family: 'DM Sans', sans-serif;
 }
-/* =============================================
-   PW-STYLE NAVBAR
-   ============================================= */
+
 .pw-nav {
   position: sticky; top: 0; z-index: 1000;
   background: white; border-bottom: 1px solid #eee;
@@ -581,9 +574,7 @@ footer {
 .dark-pill:hover { background: #6a11cb; color: white; }
 .dark-pill i { font-size: 15px; }
 
-/* =============================================
-   LOADING ANIMATION
-   ============================================= */
+
 #loader {
   position: fixed; inset: 0; z-index: 99999;
   background: white;
@@ -611,9 +602,7 @@ footer {
 }
 @keyframes loaderProgress { to { width: 100%; } }
 
-/* =============================================
-   DUE DATE BADGE ON TASK CARD
-   ============================================= */
+
 .task-due {
   font-size: 11px; color: #888; margin-top: 4px;
   display: flex; align-items: center; gap: 4px;
@@ -621,12 +610,10 @@ footer {
 .task-due.overdue { color: #ff4d4d; font-weight: 700; }
 .task-due.today   { color: #f7971e; font-weight: 700; }
 
-/* =============================================
-   DARK MODE
-   ============================================= */
+
 body.dark-mode { background: transparent; color: #ede8f8; }
 
-/* ── DARK MODE: swap tint to dark ── */
+
 body.dark-mode::after {
   background:
     linear-gradient(
