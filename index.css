@@ -414,10 +414,7 @@ footer {
     border-radius: 12px;
   }
 }
-/* =============================================
-   PASTE THIS AT THE VERY BOTTOM OF index.css
-   Warm Charcoal Purple Dark Mode
-   ============================================= */
+
 
 /* ── Dark Toggle Pill Button ── */
 .dark-pill {
@@ -593,9 +590,7 @@ body.dark-mode .fn-note {
 body.dark-mode footer {
   background: #1a1820;
 }
-/* =============================================
-   PW-STYLE NAVBAR
-   ============================================= */
+
 .pw-nav {
   position: sticky; top: 0; z-index: 1000;
   background: white; border-bottom: 1px solid #eee;
@@ -646,9 +641,7 @@ body.dark-mode footer {
 .dark-pill:hover { background: #6a11cb; color: white; }
 .dark-pill i { font-size: 15px; }
 
-/* =============================================
-   LOADING ANIMATION
-   ============================================= */
+
 #loader {
   position: fixed; inset: 0; z-index: 99999; background: white;
   display: flex; align-items: center; justify-content: center;
@@ -668,9 +661,9 @@ body.dark-mode footer {
 .loader-fill { height: 100%; width: 0%; background: linear-gradient(90deg,#6a11cb,#4ecdc4); border-radius: 4px; animation: loaderProgress 1.2s ease forwards; }
 @keyframes loaderProgress { to { width: 100%; } }
 
-/* =============================================
+/* 
    HERO SECTION
-   ============================================= */
+  */
 .hero-section {
   min-height: 88vh; display: flex; align-items: center; justify-content: center;
   text-align: center; position: relative; overflow: hidden;
@@ -722,9 +715,9 @@ body.dark-mode footer {
 }
 .hero-btn-secondary:hover { background: #f0ebff; color: #6a11cb; }
 
-/* =============================================
+/* 
    STATS BAR
-   ============================================= */
+   */
 .stats-bar-section {
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   padding: 32px 20px;
@@ -738,9 +731,9 @@ body.dark-mode footer {
 .stat-lbl { font-size: 14px; opacity: .85; margin-top: 4px; font-weight: 600; }
 .stat-divider { width: 1px; height: 50px; background: rgba(255,255,255,.3); }
 
-/* =============================================
+/* 
    TESTIMONIALS
-   ============================================= */
+   */
 .testimonials-section { padding: 90px 20px; background: #f8f4ff; }
 .testimonials-title {
   font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 900;
@@ -764,9 +757,9 @@ body.dark-mode footer {
 .tc-name { font-weight: 700; color: #1a1a2e; font-size: 15px; }
 .tc-branch { font-size: 12px; color: #888; margin-top: 2px; }
 
-/* =============================================
+/* 
    CTA SECTION
-   ============================================= */
+    */
 .cta-section {
   padding: 90px 20px; position: relative; overflow: hidden;
   background: linear-gradient(135deg, #1a1a2e, #2d1b5e, #1a2e2e);
@@ -793,9 +786,7 @@ body.dark-mode footer {
 }
 .cta-btn-secondary:hover { background: rgba(255,255,255,.1); color: white; }
 
-/* =============================================
-   DARK MODE
-   ============================================= */
+
 body.dark-mode { background: transparent; color: #ede8f8; }
 
 /* ── DARK MODE: swap tint to dark ── */
@@ -871,9 +862,7 @@ body.dark-mode #fn-badge { border-color: #252330 !important; }
 }
 
 
-/* =============================================
-   HERO TWO-COLUMN LAYOUT
-   ============================================= */
+
 .hero-section {
   min-height: 88vh !important;
   display: flex !important;

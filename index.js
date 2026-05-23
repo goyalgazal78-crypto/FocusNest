@@ -1,6 +1,4 @@
-/* ===========================
-   FocusNest — index.js
-   =========================== */
+
 
 /* ---------- QUIZ ---------- */
 
@@ -16,7 +14,7 @@ function wrong() {
   document.getElementById("feedback").innerText = "❌ Try Again!";
 }
 
-/* ---------- FEATURE SCROLL ANIMATION ---------- */
+/* FEATURE SCROLL ANIMATION  */
 
 function initScrollAnimation() {
   const featureRows = document.querySelectorAll('.feature-row');
@@ -33,7 +31,7 @@ function initScrollAnimation() {
   });
 }
 
-/* ---------- LOGIN / LOCK SYSTEM ---------- */
+/*  LOGIN / LOCK SYSTEM  */
 
 function logoutUser() {
   localStorage.removeItem("loggedIn");
@@ -63,7 +61,7 @@ function checkLogin() {
   });
 }
 
-/* ---------- INIT ON DOM READY ---------- */
+/* INIT ON DOM READY  */
 
 document.addEventListener("DOMContentLoaded", () => {
   checkLogin();
@@ -74,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCounters();
 });
 
-/* ---------- LOADER ---------- */
+/*  LOADER  */
 function initLoader() {
   setTimeout(() => {
     const loader = document.getElementById("loader");
@@ -82,7 +80,7 @@ function initLoader() {
   }, 1300);
 }
 
-/* ---------- DARK MODE ---------- */
+/*  DARK MODE */
 function initDarkMode() {
   if (localStorage.getItem("fn_dark") === "true") {
     document.body.classList.add("dark-mode");
@@ -101,7 +99,7 @@ function updateDarkBtn(isDark) {
   if (label) label.textContent = isDark ? "Light" : "Dark";
 }
 
-/* ---------- TYPEWRITER ---------- */
+/* TYPEWRITER  */
 function initTypewriter() {
   const el = document.getElementById("typewriterText");
   if (!el) return;
@@ -135,7 +133,7 @@ function initTypewriter() {
   type();
 }
 
-/* ---------- COUNTER ANIMATION ---------- */
+/*  COUNTER ANIMATION  */
 function initCounters() {
   const counters = document.querySelectorAll(".stat-num[data-target]");
   if (!counters.length) return;

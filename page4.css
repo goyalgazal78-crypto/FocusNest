@@ -442,9 +442,7 @@ footer {
   .filters-row   { flex-direction: column; align-items: flex-start; }
 }
 
-/* =====================================================
-   CHATBOT STYLES
-   ===================================================== */
+
 
 #fn-fab {
   position: fixed;
@@ -668,9 +666,7 @@ footer {
   font-family: 'DM Sans', sans-serif;
 }
 
-/* =============================================
-   PW-STYLE NAVBAR
-   ============================================= */
+
 .pw-nav {
   position: sticky; top: 0; z-index: 1000;
   background: white; border-bottom: 1px solid #eee;
@@ -713,9 +709,7 @@ footer {
 .dark-pill:hover { background: #6a11cb; color: white; }
 .dark-pill i { font-size: 15px; }
 
-/* =============================================
-   LOADING ANIMATION
-   ============================================= */
+
 #loader {
   position: fixed; inset: 0; z-index: 99999;
   background: white;
@@ -743,9 +737,8 @@ footer {
 }
 @keyframes loaderProgress { to { width: 100%; } }
 
-/* =============================================
-   DARK MODE — Warm Charcoal Purple
-   ============================================= */
+/* 
+   DARK MODE  */
 body.dark-mode { background: #252330 !important; color: #ede8f8 !important; }
 body.dark-mode .pw-nav { background: #2d2b36; border-color: #3a3550; box-shadow: 0 2px 12px rgba(0,0,0,.4); }
 body.dark-mode .pw-logo-text { background: linear-gradient(45deg,#a78bfa,#4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }

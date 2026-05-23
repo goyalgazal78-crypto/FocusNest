@@ -1,7 +1,4 @@
-/* ===========================
-   FocusNest — page4.js
-   (Resource Explorer Page)
-   =========================== */
+
 
 /* ── AUTH GUARD ── */
 if (localStorage.getItem("loggedIn") !== "true") {
